@@ -1,0 +1,11 @@
+<div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; margin-top: 15px;">
+    @if (course) {
+    <h2>📚 Course Details: {{ course.name }}</h2>
+    <p><strong>Code:</strong> {{ course.code }}</p>
+    <p><strong>Credits:</strong> {{ course.credits }} Credits</p>
+    <p><strong>Status:</strong> {{ course.gradeStatus | titlecase }}</p>
+    } @else {
+    <p style="color: red;">Course not found inside the system registration list.</p>
+    }
+    <button routerLink="/courses" style="margin-top: 15px; cursor: pointer;">← Back to Courses</button>
+</div>
