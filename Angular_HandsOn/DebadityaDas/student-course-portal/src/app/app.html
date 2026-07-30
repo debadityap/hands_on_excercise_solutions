@@ -1,0 +1,15 @@
+<!-- Keep your navigation header at the top -->
+<header
+    style="background: #333; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+    <h2 style="margin: 0;">Student Course Portal</h2>
+    <nav>
+        <a routerLink="/" style="color: white; margin-right: 15px; text-decoration: none;">Home</a>
+        <a routerLink="/courses" style="color: white; margin-right: 15px; text-decoration: none;">Courses</a>
+        <a routerLink="/profile" style="color: white; text-decoration: none;">Profile</a>
+    </nav>
+</header>
+
+<!-- Add this dynamic placeholder directly underneath your header -->
+<main style="padding: 20px;">
+    <router-outlet></router-outlet>
+</main>

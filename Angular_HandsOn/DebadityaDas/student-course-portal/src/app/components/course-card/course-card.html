@@ -1,0 +1,39 @@
+<div [appHighlight]="'lightblue'" [ngClass]="cardClasses"
+    [ngStyle]="{ 'border-left': '6px solid ' + getLeftBorderColor() }"
+    style="border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin: 10px; width: 250px; display: inline-block; vertical-align: top; text-align: left; font-family: Arial, sans-serif; background-color: #f9f9f9; transition: all 0.3s ease;">
+
+    <h4 style="margin: 0 0 10px 0; color: #0275d8;">{{ course.name }}</h4>
+    <p style="margin: 5px 0; font-size: 0.9em;"><strong>Code:</strong> {{ course.code }}</p>
+
+
+    <p style="margin: 5px 0; font-size: 0.9em;">
+        <strong>Credits:</strong> {{ course.credits | creditLabelPipe }}
+    </p>
+
+
+    <div [ngSwitch]="course.gradeStatus" style="margin: 8px 0; font-size: 0.85em; font-weight: bold;">
+        <span *ngSwitchCase="'passed'" style="color: green;">Passed</span>
+        <span *ngSwitchCase="'failed'" style="color: red;">Failed</span>
+        <span *ngSwitchCase="'pending'" style="color: grey;">Pending</span>
+    </div>
+
+    <button (click)="triggerEnroll()"
+        style="margin-top: 10px; background-color: #5cb85c; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px;">
+        Enroll
+    </button>
+
+    <button (click)="goToDetails()">Show Details</button>
+
+
+    <button (click)="toggleExpand()"
+        style="margin-top: 10px; background-color: #0275d8; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">
+        {{ isExpanded ? 'Hide' : 'Show Details' }}
+    </button>
+
+
+    <div *ngIf="isExpanded"
+        style="margin-top: 12px; padding-top: 10px; border-top: 1px dotted #ccc; font-size: 0.85em; color: #666;">
+        <p style="margin: 2px 0;"><strong>ID Ref:</strong> {{ course.id }}</p>
+        <p style="margin: 2px 0;"><strong>Status Track:</strong> Active Enrollment</p>
+    </div>
+</div>
